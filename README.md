@@ -1,3 +1,9 @@
+# Days of Yore : Flashcard app
+## Joseph Wangemann, Benjamin Thom, Brandan Sayarath, Jeremy Kale Padot, Patrick Delaney
+May 4-6, 2020
+
+## This app allows a user to add memory cards that have a front and back.  On click, they will toggle displaying either the front content or back content.  Uses Firebase/Firestore database
+
 ## Wireframe
 ![wireframe](public/days-of-yore-wireframe.png)
 
