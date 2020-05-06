@@ -14,13 +14,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * Run 'npm install' to install all dependencies
 * This project requires a Firebase database.  Create a project in Firebase console.  From Firebase you will receive an API key and some other information.  You will need to create a .env file in the root directory of the project that has the following information in it from Firebase console:
 
-`REACT_APP_FIREBASE_API_KEY = "YOUR-UNIQUE-CREDENTIALS"
-REACT_APP_FIREBASE_AUTH_DOMAIN = "YOUR-PROJECT-NAME.firebaseapp.com"
-REACT_APP_FIREBASE_DATABASE_URL = "https://YOUR-PROJECT-NAME.firebaseio.com"
-REACT_APP_FIREBASE_PROJECT_ID = "YOUR-PROJECT-FIREBASE-PROJECT-ID"
-REACT_APP_FIREBASE_STORAGE_BUCKET = "YOUR-PROJECT-NAME.appspot.com"
-REACT_APP_FIREBASE_MESSAGING_SENDER_ID = "YOUR-PROJECT-SENDER-ID"
-REACT_APP_FIREBASE_APP_ID = "YOUR-PROJECT-APP-ID"`
+  * REACT_APP_FIREBASE_API_KEY = "YOUR-UNIQUE-CREDENTIALS"
+  * REACT_APP_FIREBASE_AUTH_DOMAIN = "YOUR-PROJECT-NAME.firebaseapp.com"
+  * REACT_APP_FIREBASE_DATABASE_URL = "https://YOUR-PROJECT-NAME.firebaseio.com"
+  * REACT_APP_FIREBASE_PROJECT_ID = "YOUR-PROJECT-FIREBASE-PROJECT-ID"
+  * REACT_APP_FIREBASE_STORAGE_BUCKET = "YOUR-PROJECT-NAME.appspot.com"
+  * REACT_APP_FIREBASE_MESSAGING_SENDER_ID = "YOUR-PROJECT-SENDER-ID"
+  * REACT_APP_FIREBASE_APP_ID = "YOUR-PROJECT-APP-ID"
 
 
 ## Available Scripts
