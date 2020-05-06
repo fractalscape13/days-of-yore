@@ -1,5 +1,8 @@
 import React from "react";
 import firebase from 'firebase/app';
+// import { withFirestore, isLoaded } from 'react-redux-firebase';
+import 'firebase/auth';
+
 
 function Signin(){
   
@@ -33,8 +36,56 @@ function Signin(){
     });
   }
   
+  //attempting to do a conditional rendering here similar to the rendering in MemoryControl.js so the signup/signin/signout forms only show at the correct time.  not functional currently, can't figure out how to access "auth" like i'm doing in MemoryControl.js
+
+  // const auth = this.props.firebase.auth();
+  // if (!isLoaded(auth)) {
+  //   return (
+  //     <div className="signin">
+  //       <form onSubmit={doSignUp}>
+  //         <input
+  //           type='text'
+  //           name='email'
+  //           placeholder='Email address' />
+  //         <input
+  //           type='password'
+  //           name='password'
+  //           placeholder='Password' />
+  //         <button type='submit'>Sign up</button>
+  //       </form>
+  //     </div>
+  //   )
+  // }
+  // if ((isLoaded(auth)) && (auth.currentUser == null)) {
+  //   return (
+  //     <div className="signin">
+  //       <h1>Sign In</h1>
+  //       <form onSubmit={doSignIn}>
+  //         <input
+  //           type='text'
+  //           name='signinEmail'
+  //           placeholder='Email address' />
+  //         <input
+  //           type='password'
+  //           name='signinPassword'
+  //           placeholder='Password' />
+  //         <button type='submit'>Log in</button>
+  //       </form>
+  //     </div>
+  //   )
+  // }
+  // if ((isLoaded(auth)) && (auth.currentUser != null)) {
+  //   return (
+  //     <div className="signin">
+  //       <h1>Sign Out</h1>
+  //       <button onClick={doSignOut}>Sign out</button>
+  //     </div>
+  //   )
+  // } 
+
   return (
     <div className="signin">
+      <h1>Sign UP</h1>
       <form onSubmit={doSignUp}>
         <input
           type='text'
@@ -47,7 +98,7 @@ function Signin(){
         <button type='submit'>Sign up</button>
       </form>
 
-      <h1>Sign In</h1>
+      <h1>Sign IN</h1>
       <form onSubmit={doSignIn}>
         <input
           type='text'
@@ -60,7 +111,7 @@ function Signin(){
         <button type='submit'>Log in</button>
       </form>
 
-      <h1>Sign Out</h1>
+      <h1>Sign OUT</h1>
       <button onClick={doSignOut}>Sign out</button>
     </div>
   );
