@@ -55,10 +55,10 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ## Technologies Used
 
-* Git
 * React
 * Firebase/Firestore
 * Redux & React/Redux
+* Git/npm
 
 ## License
 
