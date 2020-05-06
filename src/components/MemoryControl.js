@@ -3,7 +3,7 @@ import MemoryForm from './MemoryForm';
 import MemoryList from './MemoryList';
 import EditMemoryForm from './EditMemoryForm';
 import { connect } from 'react-redux';
-import { withFirestore } from 'react-redux-firebase';
+import { withFirestore, isLoaded } from 'react-redux-firebase';
 
 class MemoryControl extends React.Component {
 
@@ -61,31 +61,48 @@ class MemoryControl extends React.Component {
     });
   }
 
-  render() {
-    let currentlyVisibleState = null;
-    let buttonText = null;
-
-    if (this.state.editing) {
-      currentlyVisibleState = <EditMemoryForm memory={this.state.selectedMemory} onEdit={this.handleEditingMemoryInList} />;
-      buttonText = "Return to memory list";
-    } else if (this.state.formVisibleOnPage) {
-      currentlyVisibleState = <MemoryForm onMemoryCreation={this.handleAddingNewMemoryToList} />;
-      buttonText = "Return to memory list";
-    } else {
-      currentlyVisibleState = <MemoryList onMemorySelection={this.handleFlippingCard} onClickingDelete={this.handleDeletingMemory} onClickingEdit={this.handleEditClick} flippedOver={this.state.flippedOver} />;
-      buttonText = "Add memory";
+  render(){
+    const auth = this.props.firebase.auth();
+    if (!isLoaded(auth)) {
+      return (
+        <React.Fragment>
+          <h1>Loading...</h1>
+        </React.Fragment>
+      )
     }
+    if ((isLoaded(auth)) && (auth.currentUser == null)) {
+      return (
+        <React.Fragment>
+          <h1>You must be signed in to access the queue.</h1>
+        </React.Fragment>
+      )
+    } 
+    if ((isLoaded(auth)) && (auth.currentUser != null)) {
+      let currentlyVisibleState = null;
+      let buttonText = null;
 
-    return (
-      <React.Fragment>
-        <div>
-          {currentlyVisibleState}
-        </div>
-        <div className="mainBody">
-          <button onClick={this.handleClick}>{buttonText}</button>
-        </div>
-      </React.Fragment>
-    );
+      if (this.state.editing) {
+        currentlyVisibleState = <EditMemoryForm memory={this.state.selectedMemory} onEdit={this.handleEditingMemoryInList} />;
+        buttonText = "Return to memory list";
+      } else if (this.state.formVisibleOnPage) {
+        currentlyVisibleState = <MemoryForm onMemoryCreation={this.handleAddingNewMemoryToList} />;
+        buttonText = "Return to memory list";
+      } else {
+        currentlyVisibleState = <MemoryList onMemorySelection={this.handleFlippingCard} onClickingDelete={this.handleDeletingMemory} onClickingEdit={this.handleEditClick} flippedOver={this.state.flippedOver} />;
+        buttonText = "Add memory";
+      }
+
+      return (
+        <React.Fragment>
+          <div>
+            {currentlyVisibleState}
+          </div>
+          <div className="mainBody">
+            <button onClick={this.handleClick}>{buttonText}</button>
+          </div>
+        </React.Fragment>
+      );
+    }
   }
 }
 
