@@ -3,7 +3,6 @@ import firebase from 'firebase/app';
 import { withFirestore, isLoaded } from 'react-redux-firebase';
 import 'firebase/auth';
 
-
 function Signin(props){
   const [reRender, setreRender] = useState(false);
   
@@ -86,39 +85,6 @@ function Signin(props){
       </div>
     )
   } 
-
-  // return (
-  //   <div className="signin">
-  //     <h1>Sign UP</h1>
-  //     <form onSubmit={doSignUp}>
-  //       <input
-  //         type='text'
-  //         name='email'
-  //         placeholder='Email address' />
-  //       <input
-  //         type='password'
-  //         name='password'
-  //         placeholder='Password' />
-  //       <button type='submit'>Sign up</button>
-  //     </form>
-
-  //     <h1>Sign IN</h1>
-  //     <form onSubmit={doSignIn}>
-  //       <input
-  //         type='text'
-  //         name='signinEmail'
-  //         placeholder='Email address' />
-  //       <input
-  //         type='password'
-  //         name='signinPassword'
-  //         placeholder='Password' />
-  //       <button type='submit'>Log in</button>
-  //     </form>
-
-  //     <h1>Sign OUT</h1>
-  //     <button onClick={doSignOut}>Sign out</button>
-  //   </div>
-  // );
 }
 
 export default withFirestore(Signin);
