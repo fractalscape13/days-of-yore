@@ -2,7 +2,6 @@ import React from 'react';
 import MemoryForm from './MemoryForm';
 import MemoryList from './MemoryList';
 import EditMemoryForm from './EditMemoryForm';
-import { connect } from 'react-redux';
 import { withFirestore, isLoaded } from 'react-redux-firebase';
 
 class MemoryControl extends React.Component {
@@ -105,13 +104,5 @@ class MemoryControl extends React.Component {
     }
   }
 }
-
-const mapStateToProps = state => {
-  return {
-    formVisibleOnPage: state.formVisibleOnPage
-  }
-}
-
-MemoryControl = connect(mapStateToProps)(MemoryControl);
 
 export default withFirestore(MemoryControl);
