@@ -1,12 +1,11 @@
-import React from "react";
+import React, { useState }  from "react";
 import firebase from 'firebase/app';
 import { withFirestore, isLoaded } from 'react-redux-firebase';
 import 'firebase/auth';
 
 
 function Signin(props){
-
-  console.log('props', props)
+  const [reRender, setreRender] = useState(false);
   
   function doSignUp(event) {
     event.preventDefault();
@@ -24,7 +23,7 @@ function Signin(props){
     const email = event.target.signinEmail.value;
     const password = event.target.signinPassword.value;
     firebase.auth().signInWithEmailAndPassword(email, password).then(function() {
-      console.log(props.firebase)
+      setreRender(true);
       console.log("Successfully logged IN!");
     }).catch(function(error) {
       console.log(error.message);
@@ -33,6 +32,7 @@ function Signin(props){
 
   function doSignOut() {
     firebase.auth().signOut().then(function() {
+      setreRender(false);
       console.log("Successfully signed OUT!");
     }).catch(function(error) {
       console.log(error.message);
