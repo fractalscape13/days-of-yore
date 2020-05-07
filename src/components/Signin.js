@@ -40,7 +40,6 @@ function Signin(props){
   }
 
   let auth = props.firebase.auth();
-  console.log("auth", auth)
   if (!isLoaded(auth)) {
     return (
       <div className="signin">
